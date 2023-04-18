@@ -130,17 +130,16 @@ I guess this feature is good for videos that have a lot of motion.
 
 # License
 
-VidDiffusionPipeline is licensed under the Apache License 2.0.
+VidDiffusion is licensed under the Apache License 2.0.
 
 
 # Citation
 
-If you use VidDiffusionPipeline in your project, please cite the following GitHub repository:
+If you use VidDiffusion in your project, please cite the following GitHub repository:
 https://github.com/masaishi/viddiffusion
 
 
-
-## Contributing
+# Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue on the GitHub repository.
 
