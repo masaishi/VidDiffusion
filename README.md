@@ -96,13 +96,13 @@ vid_pipe.vid2vid()
 	- `beta_start`: Beta start. Default: 0.00085 * 0.72.
 	- `beta_end`: Beta end. Default: 0.012 * 0.72.
 	- `num_train_timesteps`: Number of train timesteps. Default: int(1000 * 0.72).
-	- `is_blend`: Is blend. Default: True.
-	- `strength`: Strength. Default: 0.58.
-	- `num_inference_steps`: Number of inference steps. Default: 50.
-	- `guidance_scale`: Guidance scale. Default: 7.5.
-	- `generater`: Generater. Default: torch.Generator("cuda").manual_seed(2023).
 	- `blend_alph`: Blend alph. Default: 0.27.
 	- `blend_decay_rate`: Blend decay rate. Default: 0.9995.
+	- `strength`: Strength. Default: 0.58.
+	- `num_inference_steps`: Number of inference steps. Default: 30.
+	- `guidance_scale`: Guidance scale. Default: 7.5.
+	- `seed`: Seed for generator. Default: 2023.
+
 
 * Other parameters:
 	- `preprocess_image`: Preprocess image. Default: lambda image: image.
@@ -125,18 +125,15 @@ I guess this feature is good for videos that have a lot of motion.
 - config['blend_alph'] : 0.22 ~ 0.29 is good, but I don't know the best value.
 - config['blend_decay_rate'] : 0.999 ~ 1.0 is good, but I don't know the best value.
 
+- config['prompt'] : Try various prompt such as 'Cyberpunk style, intricate details, high-quality', 'Fantasy, dynamic, cinamatic, cinematic light, hyperrealism', 'Cyberpunk, cyberpunk style, cyberpunk aesthetic, cyber punk city, cyberpunk cityscape, cyberpunk cityscape aesthetic, cyberpunk cityscape style, cyberpunk cityscape light, cyberpunk cityscape light aesthetic, cyberpunk cityscape light style, cyberpunk cityscape light
+- config['negative_prompt'] : Try various negative_prompt such as 'Low-quality, blurry, pixelated, low-resolution', 'deformed, out of focus, blurry, low resolution, low quality', 'Low-quality, blurry, pixelated, low-resolution, deformed, out of focus, blurry, low resolution, low quality'
+
 - config['preprocess_image'] : Try various preprocess_image function such as torchvision.
 
 
 # License
 
 VidDiffusion is licensed under the Apache License 2.0.
-
-
-# Citation
-
-If you use VidDiffusion in your project, please cite the following GitHub repository:
-https://github.com/masaishi/viddiffusion
 
 
 # Contributing
@@ -152,3 +149,17 @@ If you have any questions, please feel free to contact me. Twitter DM is best op
 - LinkedIn: https://www.linkedin.com/in/masamune-ishihara-31b27b232/
 - Mastodon: @masaishi@mastodon.social
 - Email: masaishi_masa at yahoo.co.jp (Change at to @ and remove spaces)
+
+
+# Citation
+
+```bibtex
+@misc{masaishi2023viddiffusion,
+			title={VidDiffusion: Vid2Vid Diffuser Pipeline for Video Filter}, 
+			author={Masamune Ishihara},
+			year={2023},
+			publisher = {GitHub},
+			journal = {GitHub repository},
+			howpublished = {\url{https://github.com/masaishi/VidDiffusion}}
+}
+```

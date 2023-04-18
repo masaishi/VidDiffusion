@@ -1,6 +1,7 @@
 import cv2
 import os
 
+
 def get_video_fps(input_video_path):
 	"""
 	Get fps of a video
@@ -64,7 +65,7 @@ def split_video_to_images(input_video_path, output_dir_path, fps, start_time, en
 
 		# save only fps number of images per second
 		if int(frame_count % (video_fps / fps)) == 0:
-			cv2.imwrite(os.path.join(output_dir_path, 'frame_{}.png'.format(frame_count)), frame)
+			cv2.imwrite(os.path.join(output_dir_path, f'{frame_count:05d}.png'.format()), frame)
 		frame_count += 1
 			
 	video_capture.release()
