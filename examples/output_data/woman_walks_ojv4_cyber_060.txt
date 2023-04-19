@@ -1,0 +1,1 @@
+{'output_video_path': './output_data/woman_walks_ojv4_cyber_060.mp4', 'beta_start': 0.0005099999999999999, 'beta_end': 0.0072, 'num_train_timesteps': 600, 'strength': 0.54, 'blend_alph': 0.15, 'blend_decay_rate': 0.998}

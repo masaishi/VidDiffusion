@@ -72,21 +72,21 @@ def split_video_to_images(input_video_path, output_dir_path, fps, start_time, en
 
 
 def combine_images_to_video(input_dir_path, output_video_path, fps):
-		"""
-		Combine images to a video
-		:param input_dir_path: path to input directory
-		:param output_video_path: path to output video
-		:param fps: fps of output video
-		:return: None
-		"""
-		image_names = sorted(os.listdir(input_dir_path))
-		image_path = os.path.join(input_dir_path, image_names[0])
+	"""
+	Combine images to a video
+	:param input_dir_path: path to input directory
+	:param output_video_path: path to output video
+	:param fps: fps of output video
+	:return: None
+	"""
+	image_names = sorted(os.listdir(input_dir_path))
+	image_path = os.path.join(input_dir_path, image_names[0])
+	image = cv2.imread(image_path)
+	height, width, _ = image.shape
+	video_writer = cv2.VideoWriter(output_video_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
+	for image_name in image_names:
+		image_path = os.path.join(input_dir_path, image_name)
 		image = cv2.imread(image_path)
-		height, width, _ = image.shape
-		video_writer = cv2.VideoWriter(output_video_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
-		for image_name in image_names:
-			image_path = os.path.join(input_dir_path, image_name)
-			image = cv2.imread(image_path)
-			video_writer.write(image)
-		video_writer.release()
+		video_writer.write(image)
+	video_writer.release()
 

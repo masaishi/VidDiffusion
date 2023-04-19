@@ -1,9 +1,7 @@
 import os
 import glob
-from typing import Callable
 import torch
 from diffusers import DiffusionPipeline, DPMSolverMultistepScheduler
-from diffusers.utils.logging import enable_progress_bar, disable_progress_bar
 from PIL import Image
 from tqdm import tqdm
 from .video_utils import get_video_fps, get_video_duration, split_video_to_images, combine_images_to_video
@@ -75,12 +73,12 @@ class VidDiffusionPipeline:
             'negative_prompt': 'Low-quality, blurry, pixelated, low-resolution',
             
             'scheduler': DPMSolverMultistepScheduler,
-            'beta_start': 0.00085 * 0.59,
-            'beta_end': 0.012 * 0.59,
-            'num_train_timesteps': int(1000 * 0.59),
+            'beta_start': 0.00085 * 0.75,
+            'beta_end': 0.012 * 0.75,
+            'num_train_timesteps': int(1000 * 0.75),
 
             'seed': 2023,
-            'strength': 0.52,
+            'strength': 0.65,
             'num_inference_steps': 30,
             'guidance_scale': 7.5,
 
@@ -95,6 +93,9 @@ class VidDiffusionPipeline:
     
 
     def set_unset_config_values(self):
+        '''
+        Set unset config values
+        '''
         # Set default config values
         for key, value in self.get_default_config().items():
             if key not in self.config:
@@ -112,11 +113,12 @@ class VidDiffusionPipeline:
 
 
     def show_config(self):
-        print('Config:')
-        for key, value in self.config.items():
-            if key != 'hf_auth_token':
-                print(f'{key}: {value}')
-        print('\n')
+        '''
+        Return config dict string except hf_auth_token
+        '''
+        config = self.config.copy()
+        config['hf_auth_token'] = '***'
+        return str(config)
 
 
     def split_video_to_images(self):
@@ -146,6 +148,10 @@ class VidDiffusionPipeline:
 
   
     def combine_images_to_video(self):
+        '''
+        Convert images to video
+        Use self.config['output_image_dir'] and self.config['output_video_path'] 
+        ''' 
         if not os.path.exists(self.config['output_image_dir']):
             raise FileNotFoundError('Output image dir does not exist.')
         
@@ -197,6 +203,9 @@ class VidDiffusionPipeline:
 
 
     def vid2vid(self):
+        '''
+        Convert video to video
+        '''
         self.show_config()
         self.split_video_to_images()
         self.images2images()
@@ -204,6 +213,10 @@ class VidDiffusionPipeline:
     
 
     def images2vid(self):
+        '''
+        Convert images to video
+        This function maight be used for experiments by changing config values.
+        '''
         self.show_config()
         self.images2images()
         self.combine_images_to_video()
