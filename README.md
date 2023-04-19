@@ -11,6 +11,8 @@ https://user-images.githubusercontent.com/1396267/232981471-33406bff-6b2b-44d8-a
 
 
 
+https://github.com/masaishi/VidDiffusion/blob/main/videos/anime.mov
+
 ### Anime style
 
 
