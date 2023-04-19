@@ -11,8 +11,6 @@ https://user-images.githubusercontent.com/1396267/232981471-33406bff-6b2b-44d8-a
 
 
 
-https://github.com/masaishi/VidDiffusion/blob/main/videos/anime.mov
-
 ### Anime style
 
 
@@ -37,7 +35,7 @@ pip install --upgrade transformers diffusers
 pip install viddiffusion
 ```
 
-[![VidDiffusion (PyPI)](https://badge.fury.io/py/viddiffusion.svg)](https://badge.fury.io/py/viddiffusion)
+[![VidDiffusion on PyPI](https://img.shields.io/pypi/v/viddiffusion.svg)](https://pypi.org/project/viddiffusion)
 
 
 # Usage
