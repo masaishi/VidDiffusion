@@ -1,3 +1,5 @@
-dist/
-build/
-viddiffusion.egg-info/
+dist/*
+build/*
+viddiffusion.egg-info/*
+
+.DS_Store

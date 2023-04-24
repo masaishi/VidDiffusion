@@ -33,6 +33,8 @@ class VidDiffusionPipeline:
                 custom_pipeline=self.config['custom_pipeline'],
                 torch_dtype=self.config['torch_dtype'],
                 use_auth_token=self.config['hf_auth_token'],
+                force_download=True,
+                resume_download=False,
             ).to(self.config['device'])
             self.pipe.safety_checker = self.config['safety_checker']
 
